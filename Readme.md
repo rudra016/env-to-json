@@ -1,4 +1,4 @@
-# env-to-json
+# env2json-cli
 
 A lightweight CLI tool and Node.js module that converts `.env` files into clean, optionally filtered JSON or YAML formats. Perfect for scripting, CI/CD pipelines, Docker configurations, or generating config files from environment variables.
 
@@ -28,75 +28,75 @@ npx env-to-json
 
 ```bash
 # Convert .env to JSON (default)
-env-to-json
+env2json-cli
 
 # Convert specific file
-env-to-json .env.production
+env2json-cli .env.production
 
 # Output to stdout
-env-to-json .env > config.json
+env2json-cli .env > config.json
 ```
 
 ### Output Formats
 
 ```bash
 # JSON (default)
-env-to-json --format=json
+env2json-cli --format=json
 
 # YAML
-env-to-json --format=yaml
+env2json-cli --format=yaml
 
 # JavaScript module
-env-to-json --format=js
+env2json-cli --format=js
 ```
 
 ### Filtering Options
 
 ```bash
 # Only include specific keys
-env-to-json --whitelist=PORT,DB_HOST,API_URL
+env2json-cli --whitelist=PORT,DB_HOST,API_URL
 
 # Exclude sensitive keys
-env-to-json --exclude=DB_PASSWORD,JWT_SECRET
+env2json-cli --exclude=DB_PASSWORD,JWT_SECRET
 
 # Filter by prefix (great for React apps)
-env-to-json --prefix=REACT_APP_
+env2json-cli --prefix=REACT_APP_
 
 # Combine filters
-env-to-json --prefix=API_ --exclude=API_SECRET
+env2json-cli --prefix=API_ --exclude=API_SECRET
 ```
 
 ### Secret Redaction
 
 ```bash
 # Redact keys containing sensitive terms
-env-to-json --redact=PASSWORD,SECRET,TOKEN,KEY
+env2json-cli --redact=PASSWORD,SECRET,TOKEN,KEY
 
 # Redact specific patterns
-env-to-json --redact=PRIVATE,CREDENTIAL
+env2json-cli --redact=PRIVATE,CREDENTIAL
 ```
 
 ### File Output
 
 ```bash
 # Save to file
-env-to-json --output=config.json
+env2json-cli --output=config.json
 
 # Generate YAML config
-env-to-json --format=yaml --output=config.yml
+env2json-cli --format=yaml --output=config.yml
 
 # Create filtered config
-env-to-json --prefix=APP_ --output=app-config.json
+env2json-cli --prefix=APP_ --output=app-config.json
 ```
 
 ### Generate Example Files
 
 ```bash
 # Create .env.example from .env
-env-to-json --generate-example
+env2json-cli --generate-example
 
 # Create example from specific file
-env-to-json .env.production --generate-example
+env2json-cli .env.production --generate-example
 ```
 
 ## 📚 Node.js API
@@ -104,7 +104,7 @@ env-to-json .env.production --generate-example
 ### Basic Usage
 
 ```javascript
-const { convertEnv, loadEnv } = require('env-to-json');
+const { convertEnv, loadEnv } = require('env2json-cli');
 
 // Convert .env file
 const result = convertEnv({
@@ -126,7 +126,7 @@ console.log(env.DB_HOST);
 ### Advanced Usage
 
 ```javascript
-const { convertEnv } = require('env-to-json');
+const { convertEnv } = require('env2json-cli');
 
 // Convert with all options
 const result = convertEnv({
@@ -183,40 +183,40 @@ Loads and parses .env file into a JavaScript object.
 
 ```bash
 # Generate Docker-friendly JSON config
-env-to-json --exclude=DEV_,TEST_ --format=json --output=docker-config.json
+env2json-cli --exclude=DEV_,TEST_ --format=json --output=docker-config.json
 
 # Create production config
-env-to-json .env.production --redact=SECRET,PASSWORD --output=prod-config.json
+env2json-cli .env.production --redact=SECRET,PASSWORD --output=prod-config.json
 ```
 
 ### CI/CD Pipeline
 
 ```bash
 # Extract only deployment variables
-env-to-json --prefix=DEPLOY_ --format=yaml --output=deployment.yml
+env2json-cli --prefix=DEPLOY_ --format=yaml --output=deployment.yml
 
 # Create sanitized config for logging
-env-to-json --redact=SECRET,TOKEN,PASSWORD,KEY --format=json
+env2json-cli --redact=SECRET,TOKEN,PASSWORD,KEY --format=json
 ```
 
 ### Frontend Build Process
 
 ```bash
 # Extract React environment variables
-env-to-json --prefix=REACT_APP_ --format=js --output=src/config.js
+env2json-cli --prefix=REACT_APP_ --format=js --output=src/config.js
 
 # Generate Vite config
-env-to-json --prefix=VITE_ --format=json --output=vite-env.json
+env2json-cli --prefix=VITE_ --format=json --output=vite-env.json
 ```
 
 ### Development Workflow
 
 ```bash
 # Create team-shareable example file
-env-to-json --generate-example
+env2json-cli --generate-example
 
 # Create development config without secrets
-env-to-json --exclude=PROD_,SECRET_,TOKEN_ --output=dev-config.json
+env2json-cli --exclude=PROD_,SECRET_,TOKEN_ --output=dev-config.json
 ```
 
 ## 📝 .env File Format Support
@@ -272,13 +272,13 @@ USER_TOKEN=***REDACTED***
 
 ```bash
 # Production deployment - exclude all development keys
-env-to-json --exclude=DEV_,TEST_,DEBUG_ --redact=SECRET,TOKEN
+env2json-cli --exclude=DEV_,TEST_,DEBUG_ --redact=SECRET,TOKEN
 
 # Frontend build - only include public variables
-env-to-json --prefix=REACT_APP_ --exclude=REACT_APP_SECRET
+env2json-cli --prefix=REACT_APP_ --exclude=REACT_APP_SECRET
 
 # CI/CD - whitelist only required variables
-env-to-json --whitelist=API_URL,DB_HOST,REDIS_URL --redact=PASSWORD,KEY
+env2json-cli --whitelist=API_URL,DB_HOST,REDIS_URL --redact=PASSWORD,KEY
 ```
 
 ## 🧪 Testing
@@ -288,7 +288,7 @@ env-to-json --whitelist=API_URL,DB_HOST,REDIS_URL --redact=PASSWORD,KEY
 npm test
 
 # Test with sample file
-env-to-json test/sample.env --format=json
+env2json-cli test/sample.env --format=json
 ```
 
 ## 🤝 Contributing
