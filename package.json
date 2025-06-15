@@ -4,7 +4,7 @@
     "description": "Convert .env files to JSON/YAML with filtering and masking options",
     "main": "src/index.js",
     "bin": {
-      "env-to-json": "./bin/cli.js"
+      "env2json-cli": "./bin/cli.js"
     },
     "scripts": {
       "test": "node test/convert.test.js",
