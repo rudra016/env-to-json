@@ -1,5 +1,5 @@
 {
-    "name": "env-to-json",
+    "name": "env2json-cli",
     "version": "1.0.0",
     "description": "Convert .env files to JSON/YAML with filtering and masking options",
     "main": "src/index.js",
