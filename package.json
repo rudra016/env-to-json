@@ -1,39 +1,39 @@
 {
     "name": "env2json-cli",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Convert .env files to JSON/YAML with filtering and masking options",
     "main": "src/index.js",
     "bin": {
-      "env2json-cli": "./bin/cli.js"
+        "env2json-cli": "./bin/cli.js"
     },
     "scripts": {
-      "test": "node test/convert.test.js",
-      "start": "node bin/cli.js"
+        "test": "node test/convert.test.js",
+        "start": "node bin/cli.js"
     },
     "keywords": [
-      "env",
-      "environment",
-      "json",
-      "yaml",
-      "config",
-      "cli",
-      "dotenv"
+        "env",
+        "environment",
+        "json",
+        "yaml",
+        "config",
+        "cli",
+        "dotenv"
     ],
     "author": "Rudra Sharma",
     "license": "MIT",
     "dependencies": {
-      "js-yaml": "^4.1.0"
+        "js-yaml": "^4.1.0"
     },
     "devDependencies": {},
     "engines": {
-      "node": ">=14.0.0"
+        "node": ">=14.0.0"
     },
     "repository": {
-      "type": "git",
-      "url": "https://github.com/rudra016/env-to-json.git"
+        "type": "git",
+        "url": "https://github.com/rudra016/env-to-json.git"
     },
     "bugs": {
-      "url": "https://github.com/rudra016/env-to-json/issues"
+        "url": "https://github.com/rudra016/env-to-json/issues"
     },
     "homepage": "https://github.com/rudra016/env-to-json#readme"
-  }
+}
